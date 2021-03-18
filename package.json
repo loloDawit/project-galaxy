@@ -1,0 +1,24 @@
+{
+  "name": "project-galaxy",
+  "version": "1.0.0",
+  "description": "Backend API for a frontend application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loloDawit/project-galaxy.git"
+  },
+  "keywords": [
+    "API",
+    "MongoDB",
+    "AWS"
+  ],
+  "author": "Galaxy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/loloDawit/project-galaxy/issues"
+  },
+  "homepage": "https://github.com/loloDawit/project-galaxy#readme"
+}
