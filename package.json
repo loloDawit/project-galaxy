@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/loloDawit/project-galaxy/issues"
   },
-  "homepage": "https://github.com/loloDawit/project-galaxy#readme"
+  "homepage": "https://github.com/loloDawit/project-galaxy#readme",
+  "dependencies": {
+    "mongoose": "^5.12.1"
+  }
 }
