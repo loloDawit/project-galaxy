@@ -12,7 +12,7 @@ mongoose.connect(
 const coding101 = new Note({
   Title: "Introduction to Github",
   Description: "learn how to use Github effectively",
-  Reminder: True,
-})
-  .save()
-  .then(() => console.log("The data have been saved."));
+  Reminder: true,
+});
+
+coding101.save().then(() => console.log("The data have been saved."));
