@@ -35,6 +35,10 @@ jobs:
                   {
                     "title": "Compare URL",
                     "value": "${{ github.event.compare }}"
+                  },
+                  {
+                    "title": "Job Status",
+                    "value": "${{ job.status }}"
                   }
                 ]
               }
