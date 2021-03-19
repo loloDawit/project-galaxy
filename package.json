@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/loloDawit/project-galaxy#readme",
   "dependencies": {
-    "mongoose": "^5.12.1"
+    "mongoose": "^5.12.1",
+    "validator": "^13.5.2"
   }
 }
