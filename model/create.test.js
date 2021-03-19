@@ -6,13 +6,10 @@ describe('Database CURD Tests', function () {
   //Before starting the test, create a sandboxed database connection
   //Once a connection is established invoke done()
   before(function (done) {
-    mongooseconnection.connect(
-      'mongodb+srv://dev-user:newUser2021@seattle.eqx8h.mongodb.net/test',
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      }
-    );
+    mongooseconnection.connect(process.env.DB, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     const connection = mongooseconnection.connection;
 
     connection
