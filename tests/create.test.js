@@ -1,5 +1,5 @@
 const assert = require('assert');
-const Note = require('./Notes');
+const Note = require('../model/Notes');
 
 describe('Creates a note', () => {
   it('should create a Note', (done) => {
