@@ -1,57 +1,31 @@
 const assert = require('assert');
-const mongooseconnection = require('mongoose');
 const Note = require('./Notes');
 
-describe('Database CURD Tests', function () {
-  //Before starting the test, create a sandboxed database connection
-  //Once a connection is established invoke done()
-  before(function (done) {
-    mongooseconnection.connect(process.env.DB, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+describe('Creates a note', () => {
+  it('should create a Note', (done) => {
+    const note = new Note({
+      title: 'New Test',
+      description: 'New test description',
+      reminder: true,
     });
-    const connection = mongooseconnection.connection;
-
-    connection
-      .once('open', () => {
-        console.log('Connected!');
-        done();
-      })
-      .on('error', (error) => {
-        console.warn('Error : ', error);
-      });
-    beforeEach((done) => {
-      connection.db.dropCollection('notes', (err, result) => {
-        if (err) {
-          console.log(err);
-        }
-        console.log(result);
-        console.log('Collection dropped');
-        done();
-      });
+    note.save().then(() => {
+      assert(!note.isNew);
+      done();
     });
   });
+});
 
-  describe('Creating documents', () => {
-    it('creates a Note', (done) => {
-      const note = new Note({
-        title: 'New Test',
-        description: 'New test description',
-        reminder: true,
-      });
-      note.save().then(() => {
-        assert(!note.isNew);
-        done();
-      });
+describe('Missing required attribute', () => {
+  it('should not save', (done) => {
+    const note = new Note({
+      description: 'New test description',
+      reminder: true,
     });
-  });
-  // After all tests are finished drop database and close connection
-  after(function (done) {
-    mongooseconnection.connection.db.dropDatabase(function () {
-      console.log(
-        `${mongooseconnection.connection.db.databaseName} database dropped.`
-      );
-      mongooseconnection.connection.close(done);
+    note.save((err) => {
+      if (err) {
+        return done();
+      }
+      throw new Error('should generate Error!!');
     });
   });
 });
