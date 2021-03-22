@@ -21,10 +21,8 @@ beforeEach((done) => {
 
 // After all tests are finished drop database and close connection
 after((done) => {
-  // mongooseconnection.connection.db.dropDatabase( () {
-  //   console.log(
-  //     `${mongooseconnection.connection.db.databaseName} database dropped.`
-  //   );
-  mongoose.connection.close(done);
-  // });
+  mongoose.connection.db.dropDatabase(() => {
+    console.log(`${mongoose.connection.db.databaseName} database dropped.`);
+    mongoose.connection.close(done);
+  });
 });
